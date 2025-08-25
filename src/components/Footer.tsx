@@ -1,9 +1,30 @@
 import React from 'react';
 import { ArrowUp, Github, Linkedin, Mail, Heart, MapPin } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
+  const handleAnchorClick = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   const currentYear = new Date().getFullYear();
@@ -48,11 +69,15 @@ const Footer: React.FC = () => {
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold text-text-primary mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-text-secondary">
               <li>
                 <a
                   href="#about"
-                  className="text-text-secondary hover:text-accent-500 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAnchorClick('about');
+                  }}
+                  className="hover:text-accent-500 transition-colors duration-200 cursor-pointer"
                 >
                   About Me
                 </a>
@@ -60,7 +85,11 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#skills"
-                  className="text-text-secondary hover:text-accent-500 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAnchorClick('skills');
+                  }}
+                  className="hover:text-accent-500 transition-colors duration-200 cursor-pointer"
                 >
                   Skills
                 </a>
@@ -68,7 +97,11 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#projects"
-                  className="text-text-secondary hover:text-accent-500 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAnchorClick('projects');
+                  }}
+                  className="hover:text-accent-500 transition-colors duration-200 cursor-pointer"
                 >
                   Projects
                 </a>
@@ -76,7 +109,11 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#experience"
-                  className="text-text-secondary hover:text-accent-500 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAnchorClick('experience');
+                  }}
+                  className="hover:text-accent-500 transition-colors duration-200 cursor-pointer"
                 >
                   Experience
                 </a>
@@ -84,7 +121,11 @@ const Footer: React.FC = () => {
               <li>
                 <a
                   href="#contact"
-                  className="text-text-secondary hover:text-accent-500 transition-colors duration-200"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAnchorClick('contact');
+                  }}
+                  className="hover:text-accent-500 transition-colors duration-200 cursor-pointer"
                 >
                   Contact
                 </a>

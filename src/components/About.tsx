@@ -140,22 +140,22 @@ const About: React.FC = () => {
 
           {/* Right Side - Statistics Panel */}
           <div className="bg-gradient-to-r from-dark-800/90 to-dark-700/90 backdrop-blur-xl rounded-2xl p-6 border border-dark-600/70 shadow-xl">
-            <h3 className="text-xl font-semibold text-text-primary mb-6 text-center">Quick Stats</h3>
-            <div className="grid grid-cols-2 gap-4 mb-6">
+            <h3 className="text-xl font-semibold text-text-primary mb-4 text-center">Quick Stats</h3>
+            <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="text-center p-3 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
-                <div className="text-xl font-bold text-accent-500 mb-1">3+</div>
+                <div className="text-lg font-bold text-accent-500">3+</div>
                 <div className="text-xs text-text-secondary">Years Coding</div>
               </div>
               <div className="text-center p-3 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
-                <div className="text-xl font-bold text-accent-500 mb-1">20</div>
+                <div className="text-lg font-bold text-accent-500">20+</div>
                 <div className="text-xs text-text-secondary">GitHub Repos</div>
               </div>
               <div className="text-center p-3 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
-                <div className="text-xl font-bold text-accent-500 mb-1">5+</div>
+                <div className="text-lg font-bold text-accent-500">5+</div>
                 <div className="text-xs text-text-secondary">Technologies</div>
               </div>
               <div className="text-center p-3 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
-                <div className="text-xl font-bold text-accent-500 mb-1">100%</div>
+                <div className="text-lg font-bold text-accent-500">100%</div>
                 <div className="text-xs text-text-secondary">Dedication</div>
               </div>
             </div>
@@ -175,6 +175,33 @@ const About: React.FC = () => {
                 <Github className="w-4 h-4" />
                 <span className="text-xs font-medium">@Nitish-11k</span>
               </a>
+              
+              {/* Resume Download */}
+              <div className="mt-2">
+                <div className="text-center mb-2">
+                  <span className="text-sm text-accent-400 animate-pulse">Click to see the Resume</span>
+                  <div className="text-accent-500 text-lg">↓</div>
+                </div>
+                <a
+                  href="/Nitish_backend_resume_page-0001.jpg"
+                  className="inline-flex items-center space-x-2 text-accent-500 hover:text-accent-400 transition-colors duration-200 hover:scale-105 transform"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base font-bold">Java Backend Developer Resume</span>
+                </a>
+              </div>
+              
+              {/* Inspirational Quote */}
+              <div className="mt-3 pt-3 border-t border-dark-500/50 flex-1 flex items-center justify-center min-h-[80px]">
+                <div className="text-center">
+                  <p className="text-sm text-text-secondary italic font-cursive leading-relaxed px-2">
+                    "Code may build products,<br />
+                    but curiosity builds developers."
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

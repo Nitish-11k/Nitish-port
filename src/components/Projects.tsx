@@ -50,8 +50,8 @@ const Projects: React.FC = () => {
       liveUrl: "https://retroarcade.in",
       stars: 15,
       forks: 8,
-      lastUpdated: "2024-01-15",
-      category: "Frontend"
+      lastUpdated: "2025-07-25",
+      category: "Full Stack"
     },
     {
       id: 2,
@@ -94,16 +94,16 @@ const Projects: React.FC = () => {
     },
     {
       id: 5,
-      title: "Supabase Real-time Chat",
-      description: "Real-time chat application built with Supabase, featuring instant messaging, file sharing, and user presence.",
+      title: "Python Backend Onboarding ",
+      description: "Learning the python backend onboarding. To expand my tech stack and learn new technologies.",
       image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      technologies: ["Supabase", "React", "TypeScript", "Tailwind CSS", "Real-time subscriptions"],
-      features: ["Instant messaging", "File sharing", "User presence", "Message history", "Push notifications"],
-      githubUrl: "https://github.com/Nitish-11k/supabase-chat",
+      technologies: ["Python", "Supabase", "FastAPI", "SQLAlchemy", "GitHub"],
+      features: ["User Authentication", "Database Management", "API Development", "RESTful APIs", "Data Validation"],
+      githubUrl: "https://github.com/Nitish-11k/First-PythonBackend",
       stars: 9,
       forks: 4,
-      lastUpdated: "2024-02-05",
-      category: "Full Stack"
+      lastUpdated: "2025-08-05",
+      category: "Backend"
     },
     {
       id: 6,

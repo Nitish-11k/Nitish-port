@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,13 +18,12 @@ const Header: React.FC = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'My Work', href: '/projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/', isAnchor: false },
+    { name: 'About', href: '/#about', isAnchor: true },
+    { name: 'Skills', href: '/#skills', isAnchor: true },
+    { name: 'Projects', href: '/#projects', isAnchor: true },
+    { name: 'Experience', href: '/#experience', isAnchor: true },
+    { name: 'Contact', href: '/#contact', isAnchor: true }
   ];
 
   return (
@@ -33,8 +35,16 @@ const Header: React.FC = () => {
       <div className="container-max">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo/Brand */}
-          <a href="#home" className="text-2xl lg:text-3xl font-bold gradient-text">
-            Portfolio
+          <a 
+            href="/" 
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="text-2xl lg:text-3xl font-bold gradient-text cursor-pointer font-cursive"
+          >
+            <span className="text-4xl lg:text-5xl">P</span>ortfolio
           </a>
 
           {/* Desktop Navigation */}
@@ -43,11 +53,33 @@ const Header: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-text-secondary hover:text-accent-500 transition-colors duration-200 font-medium relative group"
+                className="text-text-secondary hover:text-accent-500 transition-colors duration-200 font-medium relative group cursor-pointer"
                 onClick={(e) => {
-                  if (item.href.startsWith('/')) {
-                    e.preventDefault();
-                    window.location.href = item.href;
+                  e.preventDefault();
+                  if (item.name === 'Home') {
+                    // Always navigate to home page and scroll to top
+                    navigate('/');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else if (item.isAnchor) {
+                    // For anchor links, navigate to home first then scroll to section
+                    if (location.pathname !== '/') {
+                      navigate('/');
+                      setTimeout(() => {
+                        const section = item.href.split('#')[1];
+                        const element = document.getElementById(section);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }, 100);
+                    } else {
+                      const section = item.href.split('#')[1];
+                      const element = document.getElementById(section);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }
+                  } else {
+                    navigate(item.href);
                   }
                 }}
               >
@@ -76,13 +108,35 @@ const Header: React.FC = () => {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => {
+                    e.preventDefault();
                     setIsMenuOpen(false);
-                    if (item.href.startsWith('/')) {
-                      e.preventDefault();
-                      window.location.href = item.href;
+                    if (item.name === 'Home') {
+                      // Always navigate to home page and scroll to top
+                      navigate('/');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else if (item.isAnchor) {
+                      // For anchor links, navigate to home first then scroll to section
+                      if (location.pathname !== '/') {
+                        navigate('/');
+                        setTimeout(() => {
+                          const section = item.href.split('#')[1];
+                          const element = document.getElementById(section);
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }, 100);
+                      } else {
+                        const section = item.href.split('#')[1];
+                        const element = document.getElementById(section);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }
+                    } else {
+                      navigate(item.href);
                     }
                   }}
-                  className="block px-4 py-3 text-text-secondary hover:text-accent-500 hover:bg-dark-800/50 transition-all duration-200 rounded-lg font-medium"
+                  className="block px-4 py-3 text-text-secondary hover:text-accent-500 hover:bg-dark-800/50 transition-all duration-200 rounded-lg font-medium cursor-pointer"
                 >
                   {item.name}
                 </a>
