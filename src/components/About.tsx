@@ -179,11 +179,13 @@ const About: React.FC = () => {
               {/* Resume Download */}
               <div className="mt-2">
                 <div className="text-center mb-2">
-                  <span className="text-sm text-accent-400 animate-pulse">Click to see the Resume</span>
+                  <span className="text-sm text-accent-400 animate-pulse">Click to view Resume</span>
                   <div className="text-accent-500 text-lg">↓</div>
                 </div>
                 <a
                   href="/Nitish_backend_resume_page-0001.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 text-accent-500 hover:text-accent-400 transition-colors duration-200 hover:scale-105 transform"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
