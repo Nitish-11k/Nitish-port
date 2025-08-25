@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden dark-section"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden dark-section pt-20 lg:pt-24 smooth-element"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-700"></div>
@@ -31,14 +31,14 @@ const Hero: React.FC = () => {
       </div>
       
       <div className="container-max relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen">
           {/* Left Column - Text Content */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-6 lg:space-y-8">
             {/* Main Heading with Staggered Animation */}
             <div className={`transition-all duration-1000 ease-out transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-text-primary mb-4 lg:mb-6 leading-tight">
                 Hi, I'm{' '}
                 <span className="gradient-text animate-glow">Nitish</span>
               </h1>
@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
             <div className={`transition-all duration-1000 ease-out delay-200 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-text-secondary mb-8">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold text-text-secondary mb-4 lg:mb-8">
                 Backend Developer & Final Year Student
               </h2>
             </div>
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
             <div className={`transition-all duration-1000 ease-out delay-400 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              <p className="text-lg sm:text-xl text-text-secondary mb-12 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-text-secondary mb-8 lg:mb-12 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
                 Specialized in building robust backend applications with Java and Spring Boot. 
                 Currently expanding my skillset to include modern frontend technologies and working towards becoming a full-stack developer.
               </p>
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
             <div className={`transition-all duration-1000 ease-out delay-600 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-16">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 lg:mb-16">
                 <button
                   onClick={scrollToAbout}
                   className="px-8 py-4 bg-accent-500 text-dark-900 font-semibold rounded-lg hover:bg-accent-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-accent-500/50 animate-glow"
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
             <div className={`transition-all duration-1000 ease-out delay-800 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
-              <div className="flex justify-center lg:justify-start space-x-6 mb-12">
+              <div className="flex justify-center lg:justify-start space-x-6 mb-8 lg:mb-12">
                 <a
                   href="https://github.com/Nitish-11k"
                   target="_blank"
@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
                 
                 {/* Main Image Container */}
                 <div className="relative bg-dark-800 rounded-full p-2 shadow-2xl hover:shadow-accent-500/50 transition-all duration-500 transform hover:scale-105 border border-dark-600">
-                  <div className="w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden border-4 border-dark-700 shadow-xl">
+                  <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-dark-700 shadow-xl">
                     <img
                       src="/ine.jpeg"
                       alt="Nitish - Backend Developer"

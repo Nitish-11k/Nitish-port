@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { User, GraduationCap, Code, Lightbulb, MapPin, Github } from 'lucide-react';
+import { GraduationCap, Code, Lightbulb, MapPin, Github } from 'lucide-react';
 
 const About: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,7 +28,7 @@ const About: React.FC = () => {
     const handleScroll = () => {
       if (parallaxRef.current) {
         const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5; // Parallax speed (negative for opposite direction)
+        const rate = scrolled * -0.2; // Reduced parallax speed to prevent merging
         setScrollY(rate);
       }
     };
@@ -56,7 +56,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="section-padding dark-section-alt relative overflow-hidden">
+    <section id="about" className="section-padding dark-section-alt relative overflow-hidden smooth-element">
       {/* Parallax Background */}
       <div 
         ref={parallaxRef}
@@ -90,7 +90,7 @@ const About: React.FC = () => {
             style={{
               backgroundImage: `radial-gradient(circle at 1px 1px, #fca311 1px, transparent 0)`,
               backgroundSize: '60px 60px',
-              transform: `translateY(${scrollY * 0.1}px)`
+              transform: `translateY(${scrollY * 0.05}px)` // Reduced movement
             }}
           ></div>
         </div>
@@ -98,7 +98,7 @@ const About: React.FC = () => {
 
       {/* Content Container */}
       <div className="container-max relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000 ease-out transform ${
+        <div className={`text-center mb-20 transition-all duration-1000 ease-out transform ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <h2 className="text-4xl sm:text-5xl font-bold text-text-primary mb-6">
@@ -113,12 +113,12 @@ const About: React.FC = () => {
         </div>
 
         {/* Main Content Grid - Left Side Cards + Right Side Stats */}
-        <div className={`grid lg:grid-cols-2 gap-12 mb-16 transition-all duration-1000 ease-out delay-200 transform ${
+        <div className={`grid lg:grid-cols-2 gap-16 mb-20 transition-all duration-1000 ease-out delay-200 transform ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           
           {/* Left Side - Three Highlight Cards */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {highlights.map((highlight, index) => (
               <div 
                 key={index}
@@ -139,32 +139,32 @@ const About: React.FC = () => {
           </div>
 
           {/* Right Side - Statistics Panel */}
-          <div className="bg-gradient-to-r from-dark-800/90 to-dark-700/90 backdrop-blur-xl rounded-2xl p-8 border border-dark-600/70 shadow-xl">
-            <h3 className="text-2xl font-semibold text-text-primary mb-8 text-center">Quick Stats</h3>
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              <div className="text-center p-4 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
-                <div className="text-2xl font-bold text-accent-500 mb-1">3+</div>
-                <div className="text-sm text-text-secondary">Years Coding</div>
+          <div className="bg-gradient-to-r from-dark-800/90 to-dark-700/90 backdrop-blur-xl rounded-2xl p-6 border border-dark-600/70 shadow-xl">
+            <h3 className="text-xl font-semibold text-text-primary mb-6 text-center">Quick Stats</h3>
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="text-center p-3 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
+                <div className="text-xl font-bold text-accent-500 mb-1">3+</div>
+                <div className="text-xs text-text-secondary">Years Coding</div>
               </div>
-              <div className="text-center p-4 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
-                <div className="text-2xl font-bold text-accent-500 mb-1">20</div>
-                <div className="text-sm text-text-secondary">GitHub Repos</div>
+              <div className="text-center p-3 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
+                <div className="text-xl font-bold text-accent-500 mb-1">20</div>
+                <div className="text-xs text-text-secondary">GitHub Repos</div>
               </div>
-              <div className="text-center p-4 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
-                <div className="text-2xl font-bold text-accent-500 mb-1">5+</div>
-                <div className="text-sm text-text-secondary">Technologies</div>
+              <div className="text-center p-3 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
+                <div className="text-xl font-bold text-accent-500 mb-1">5+</div>
+                <div className="text-xs text-text-secondary">Technologies</div>
               </div>
-              <div className="text-center p-4 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
-                <div className="text-2xl font-bold text-accent-500 mb-1">100%</div>
-                <div className="text-sm text-text-secondary">Dedication</div>
+              <div className="text-center p-3 bg-dark-600/50 backdrop-blur-sm rounded-lg border border-dark-500/50 hover:border-accent-500/30 transition-all duration-300">
+                <div className="text-xl font-bold text-accent-500 mb-1">100%</div>
+                <div className="text-xs text-text-secondary">Dedication</div>
               </div>
             </div>
 
             {/* Location and GitHub */}
-            <div className="text-center pt-4 border-t border-dark-500/50">
+            <div className="text-center pt-3 border-t border-dark-500/50">
               <div className="flex items-center justify-center space-x-2 mb-2">
                 <MapPin className="w-4 h-4 text-accent-500" />
-                <span className="text-sm text-text-secondary">Delhi, India</span>
+                <span className="text-xs text-text-secondary">Delhi, India</span>
               </div>
               <a
                 href="https://github.com/Nitish-11k"
@@ -173,7 +173,7 @@ const About: React.FC = () => {
                 className="inline-flex items-center space-x-2 text-accent-500 hover:text-accent-400 transition-colors duration-200"
               >
                 <Github className="w-4 h-4" />
-                <span className="text-sm font-medium">@Nitish-11k</span>
+                <span className="text-xs font-medium">@Nitish-11k</span>
               </a>
             </div>
           </div>
@@ -184,10 +184,6 @@ const About: React.FC = () => {
           className={`text-center transition-all duration-1000 ease-out delay-600 transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
-          style={{
-            transform: `translateY(${scrollY * 0.1}px)`,
-            willChange: 'transform'
-          }}
         >
           <div className="bg-gradient-to-r from-dark-800/90 to-dark-700/90 backdrop-blur-xl rounded-2xl p-8 border border-dark-600/70 shadow-xl">
             <h3 className="text-2xl font-semibold text-text-primary mb-4">

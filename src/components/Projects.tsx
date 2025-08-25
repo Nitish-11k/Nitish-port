@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ExternalLink, Github, Star, GitBranch, Calendar, Code } from 'lucide-react';
+import { Github, Star, GitBranch, Calendar, Code, ExternalLink } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -14,6 +14,7 @@ interface Project {
   forks: number;
   lastUpdated: string;
   category: string;
+  isWide?: boolean;
 }
 
 const Projects: React.FC = () => {
@@ -54,30 +55,30 @@ const Projects: React.FC = () => {
     },
     {
       id: 2,
-      title: "Spring Boot E-Commerce API",
-      description: "A robust RESTful API for e-commerce applications built with Spring Boot, featuring JWT authentication and microservices architecture.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      title: "Smart Garbage Reporting System Backend",
+      description: "A comprehensive backend system for smart garbage reporting that enables real-time garbage reporting with image support, instant status tracking of complaints, automated data handling via RESTful APIs, and structured storage of reports using MySQL for analysis.",
+              image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       technologies: ["Java", "Spring Boot", "Spring Security", "JWT", "MySQL", "Maven"],
-      features: ["User authentication", "Product management", "Order processing", "Payment integration", "Admin dashboard"],
-      githubUrl: "https://github.com/Nitish-11k/ecommerce-api",
+              features: ["Real-time garbage reporting", "Image upload support", "Status tracking system", "RESTful APIs", "MySQL database"],
+      githubUrl: "https://github.com/Nitish-11k/Garbage-Reporting-System-Backend",
       stars: 23,
       forks: 12,
-      lastUpdated: "2024-02-20",
+      lastUpdated: "2025-02-20",
       category: "Backend"
     },
-    {
-      id: 3,
-      title: "MongoDB Analytics Dashboard",
-      description: "Real-time analytics dashboard for MongoDB databases with interactive charts and data visualization.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      technologies: ["MongoDB", "Express.js", "Node.js", "Chart.js", "Socket.io", "Docker"],
-      features: ["Real-time monitoring", "Custom queries", "Performance metrics", "Alert system", "Export functionality"],
-      githubUrl: "https://github.com/Nitish-11k/mongodb-dashboard",
-      stars: 18,
-      forks: 9,
-      lastUpdated: "2024-01-30",
-      category: "Full Stack"
-    },
+          {
+        id: 3,
+        title: "Chat-Application",
+        description: "Developed a real-time chat application using Java Socket Programming and JFrame for GUI. The app enables seamless client-server communication over the same network, showcasing skills in networking, GUI design, and Java development.",
+        image: "/ChaApp.png",
+        technologies: ["Java", "JFrame", "Socket Programming", "JDBC", "Server-side Programming"],
+        features: ["Real-time messaging", "Client-server communication", "Network programming", "GUI interface", "Database integration"],
+        githubUrl: "https://github.com/Nitish-11k/Chat-Application",
+        stars: 12,
+        forks: 5,
+        lastUpdated: "2024-01-30",
+        category: "Desktop Application"
+      },
     {
       id: 4,
       title: "Firebase Authentication System",
@@ -116,6 +117,21 @@ const Projects: React.FC = () => {
       forks: 18,
       lastUpdated: "2024-02-25",
       category: "Backend"
+    },
+    {
+      id: 7,
+      title: "My Frontend Development Work",
+      description: "A comprehensive showcase of my frontend development expertise, including responsive web applications, interactive user interfaces, and modern web technologies. This portfolio demonstrates my ability to create engaging, user-friendly experiences that drive business value.",
+      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "React Router", "Vite", "Next.js", "Styled Components"],
+      features: ["Responsive design", "Smooth animations", "Dark/light theme", "Interactive components", "SEO optimized", "Performance focused", "Accessibility compliant"],
+      githubUrl: "https://github.com/Nitish-11k/frontend-showcase",
+      liveUrl: "https://nitish-frontend.vercel.app",
+      stars: 28,
+      forks: 15,
+      lastUpdated: "2024-03-01",
+      category: "Frontend",
+      isWide: true
     }
   ];
 
@@ -138,7 +154,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="section-padding dark-section-alt relative overflow-hidden">
+    <section id="projects" className="section-padding dark-section-alt relative overflow-hidden smooth-element">
       {/* Parallax Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
@@ -180,6 +196,8 @@ const Projects: React.FC = () => {
             <div
               key={project.id}
               className={`group dark-card hover:border-accent-500/50 transition-all duration-700 transform hover:scale-105 ${
+                project.isWide ? 'lg:col-span-2' : ''
+              } ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
@@ -251,16 +269,18 @@ const Projects: React.FC = () => {
                 {/* Project Links */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-dark-700 text-text-secondary hover:text-accent-500 hover:bg-dark-600 rounded-lg transition-all duration-300 border border-dark-600"
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </a>
-                    {project.liveUrl && (
+                    {project.title !== "My Frontend Development Work" && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-dark-700 text-text-secondary hover:text-accent-500 hover:bg-dark-600 rounded-lg transition-all duration-300 border border-dark-600"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </a>
+                    )}
+                    {project.title === "Retro Arcade" && project.liveUrl && (
                       <a
                         href={project.liveUrl}
                         target="_blank"
@@ -268,17 +288,39 @@ const Projects: React.FC = () => {
                         className="inline-flex items-center px-4 py-2 bg-accent-500 text-dark-900 hover:bg-accent-600 rounded-lg transition-all duration-300 font-medium"
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
+                        Live Site
                       </a>
                     )}
                   </div>
                   
-                  <div className="text-right text-xs text-text-muted">
-                    <div className="flex items-center space-x-1">
-                      <Calendar className="w-3 h-3" />
-                      <span>{new Date(project.lastUpdated).toLocaleDateString()}</span>
+                  {/* Centered Explore Button for Frontend Work Card */}
+                  {project.title === "My Frontend Development Work" && (
+                    <div className="flex items-center space-x-4">
+                      <span className="text-accent-400 text-sm font-medium animate-pulse">
+                        Click it →
+                      </span>
+                      <button
+                        onClick={() => {
+                          // Navigate to the projects page
+                          window.location.href = '/projects';
+                        }}
+                        className="inline-flex items-center px-6 py-3 bg-accent-500 text-dark-900 hover:bg-accent-600 rounded-lg transition-all duration-300 font-medium transform hover:scale-105"
+                      >
+                        <Code className="w-5 h-5 mr-2" />
+                        Explore the Project
+                      </button>
                     </div>
-                  </div>
+                  )}
+                  
+                  {/* Date for non-Frontend Work cards */}
+                  {project.title !== "My Frontend Development Work" && (
+                    <div className="text-right text-xs text-text-muted">
+                      <div className="flex items-center space-x-1">
+                        <Calendar className="w-3 h-3" />
+                        <span>{new Date(project.lastUpdated).toLocaleDateString()}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { TrendingUp, Star, Github, ExternalLink, Code, Zap, Database, Cloud, Globe, Shield } from 'lucide-react';
+import { TrendingUp, Star, Github, ExternalLink, Code } from 'lucide-react';
 
 interface Repository {
   name: string;
@@ -42,41 +42,6 @@ const Skills: React.FC = () => {
   });
 
   const parallaxRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    fetchGitHubData();
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (parallaxRef.current) {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.3; // Smooth parallax speed
-        setScrollY(rate);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.getElementById('skills');
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const fetchGitHubData = async () => {
     try {
@@ -140,12 +105,47 @@ const Skills: React.FC = () => {
       }
     } catch (error) {
       console.error('Error fetching GitHub data:', error);
-      // Fallback skills data
-      setSkills(getFallbackSkills());
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchGitHubData();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (parallaxRef.current) {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.3; // Smooth parallax speed
+        setScrollY(rate);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('skills');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+
 
   const getSkillInfo = (language: string) => {
     const skillMap: { [key: string]: { icon: string; experience: string; category: string } } = {
