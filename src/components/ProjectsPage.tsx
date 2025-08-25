@@ -58,7 +58,7 @@ const ProjectsPage: React.FC = () => {
       id: 3,
       title: "Culture Explore",
       description: "A cultural exploration platform that showcases different cultures and traditions. Currently in active development with a focus on creating an engaging and educational user experience.",
-      image: "/CE.jpg",
+      image: "/CE.jpeg",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Cultural Content", "Educational Design"],
       features: ["Cultural content", "Educational platform", "Interactive elements", "Responsive design", "Learning focused"],
       githubUrl: "https://github.com/Nitish-11k/culture-explore",

@@ -70,7 +70,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: "Chat-Application",
       description: "Developed a real-time chat application using Java Socket Programming and JFrame for GUI. The app enables seamless client-server communication over the same network, showcasing skills in networking, GUI design, and Java development.",
-      image: "/ChaApp.png",
+      image: "/ChaApp.jpeg",
       technologies: ["Java", "JFrame", "Socket Programming", "JDBC", "Server-side Programming"],
       features: ["Real-time messaging", "Client-server communication", "Network programming", "GUI interface", "Database integration"],
       githubUrl: "https://github.com/Nitish-11k/Chat-Application",

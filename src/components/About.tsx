@@ -185,7 +185,7 @@ const About: React.FC = () => {
                 
                 {/* View Online Button */}
                 <a
-                  href="/Nitish_backend_resume_page-0001.jpg"
+                  href="/Nitish_backend_resume_page-0001.jpeg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 text-accent-500 hover:text-accent-400 transition-colors duration-200 hover:scale-105 transform mb-2 w-full justify-center"
