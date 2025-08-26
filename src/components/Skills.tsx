@@ -23,8 +23,6 @@ interface SkillData {
 
 interface GitHubStats {
   repositories: number;
-  followers: number;
-  stars: number;
   focus: string;
 }
 
@@ -36,8 +34,6 @@ const Skills: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [githubStats, setGitHubStats] = useState<GitHubStats>({
     repositories: 0,
-    followers: 0,
-    stars: 0,
     focus: 'Backend Development'
   });
 
@@ -57,8 +53,6 @@ const Skills: React.FC = () => {
         setRepositories(reposData);
         setGitHubStats({
           repositories: userData.public_repos,
-          followers: userData.followers,
-          stars: reposData.reduce((sum: number, repo: any) => sum + repo.stargazers_count, 0),
           focus: 'Backend Development with Java & Spring'
         });
 
@@ -374,22 +368,18 @@ const Skills: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="text-3xl font-bold text-accent-500 mb-2">{githubStats.repositories}</div>
               <div className="text-sm text-text-secondary">Repositories</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent-500 mb-2">{githubStats.followers}</div>
-              <div className="text-sm text-text-secondary">Followers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-accent-500 mb-2">{githubStats.stars}</div>
-              <div className="text-sm text-text-secondary">Stars</div>
-            </div>
-            <div className="text-center">
               <div className="text-3xl font-bold text-accent-500 mb-2">🇮🇳</div>
               <div className="text-sm text-text-secondary">Delhi, India</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent-500 mb-2">☕</div>
+              <div className="text-sm text-text-secondary">Java Focus</div>
             </div>
           </div>
           
@@ -468,7 +458,10 @@ const Skills: React.FC = () => {
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">
-              {repositories.slice(0, 6).map((repo, index) => (
+              {repositories
+                .filter(repo => !['nitish-port', 'sheand-soul-verison-1', 'sheand-soul-version-1'].includes(repo.name.toLowerCase()))
+                .slice(0, 6)
+                .map((repo, index) => (
                 <div
                   key={index}
                   className={`bg-dark-600/50 backdrop-blur-sm rounded-lg p-6 border border-dark-500 hover:bg-dark-600 hover:border-accent-500/50 transition-all duration-500 transform hover:scale-105 ${

@@ -2,6 +2,7 @@
   "name": "nitish-portfolio",
   "version": "1.0.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.0",

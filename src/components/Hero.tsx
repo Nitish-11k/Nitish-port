@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import FluidSimulation from './FluidSimulation';
 
 const Hero: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,6 +30,9 @@ const Hero: React.FC = () => {
           backgroundSize: '60px 60px'
         }}></div>
       </div>
+      
+      {/* WebGL Fluid Simulation Background */}
+      <FluidSimulation />
       
       <div className="container-max relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen">

@@ -5,7 +5,7 @@ interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image: string | JSX.Element;
   technologies: string[];
   features: string[];
   githubUrl: string;
@@ -70,7 +70,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: "Chat-Application",
       description: "Developed a real-time chat application using Java Socket Programming and JFrame for GUI. The app enables seamless client-server communication over the same network, showcasing skills in networking, GUI design, and Java development.",
-      image: "/ChaApp.jpeg",
+      image: <img src="/ChaApp.jpeg" alt="Chat-Application image" />,
       technologies: ["Java", "JFrame", "Socket Programming", "JDBC", "Server-side Programming"],
       features: ["Real-time messaging", "Client-server communication", "Network programming", "GUI interface", "Database integration"],
       githubUrl: "https://github.com/Nitish-11k/Chat-Application",
@@ -307,7 +307,7 @@ const Projects: React.FC = () => {
                         className="inline-flex items-center px-6 py-3 bg-accent-500 text-dark-900 hover:bg-accent-600 rounded-lg transition-all duration-300 font-medium transform hover:scale-105"
                       >
                         <Code className="w-5 h-5 mr-2" />
-                        Explore the Project
+                        Explore Project
                       </button>
                     </div>
                   )}
