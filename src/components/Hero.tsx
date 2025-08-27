@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}>
               <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold text-text-secondary mb-4 lg:mb-8">
-                Backend Developer & Final Year Student
+                Backend Developer 
               </h2>
             </div>
             
@@ -137,6 +137,9 @@ const Hero: React.FC = () => {
                         imageLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'
                       }`}
                       onLoad={() => setImageLoaded(true)}
+                      onError={(e) => {
+                        console.error('Failed to load profile image: /ine.jpeg');
+                      }}
                     />
                   </div>
                   

@@ -185,16 +185,10 @@ const About: React.FC = () => {
                 
                 {/* View Online Button */}
                 <a
-                  href={`${process.env.PUBLIC_URL || ''}/Nitish_backend_resume_page-0001.jpeg`}
+                  href="/Nitish_backend_resume_page-0001.jpeg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 text-accent-500 hover:text-accent-400 transition-colors duration-200 hover:scale-105 transform mb-2 w-full justify-center"
-                  onClick={(e) => {
-                    // Add debugging for production
-                    if (process.env.NODE_ENV === 'production') {
-                      console.log('Resume URL:', `${process.env.PUBLIC_URL || ''}/Nitish_backend_resume_page-0001.jpeg`);
-                    }
-                  }}
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 12a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
@@ -205,9 +199,7 @@ const About: React.FC = () => {
                 
                 {/* Download Button */}
                 <a
-                  href={`${process.env.PUBLIC_URL || ''}/Nitish_backend_resume_page-0001.jpeg`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/Nitish_backend_resume_page-0001.jpeg"
                   download="Nitish_Backend_Resume.jpeg"
                   className="inline-flex items-center space-x-2 text-accent-500 hover:text-accent-400 transition-colors duration-200 hover:scale-105 transform w-full justify-center"
                 >
