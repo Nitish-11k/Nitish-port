@@ -178,9 +178,9 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📞 Support
 
 If you have any questions or need help:
-- Email: nitish@example.com
-- GitHub: [@nitish](https://github.com/nitish)
-- LinkedIn: [Nitish](https://linkedin.com/in/nitish)
+- Email: nitishk0014@gmail.com
+- GitHub: [@nitish](https://github.com/nitish-11k)
+- LinkedIn: [Nitish](https://linkedin.com/in/nitish-11k)
 
 ---
 
